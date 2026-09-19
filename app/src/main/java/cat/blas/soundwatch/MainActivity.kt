@@ -14,6 +14,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 
@@ -44,13 +45,13 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("SoundWatch", style = MaterialTheme.typography.headlineLarge)
-                Text("Alerta si el soroll estimat supera 80 dB durant 1 segon. Després espera 1 minut.")
+                Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineLarge)
+                Text(stringResource(R.string.summary))
                 OutlinedTextField(
                     value = offsetText,
                     onValueChange = { offsetText = it },
-                    label = { Text("Desplaçament de calibratge (dB)") },
-                    supportingText = { Text("Calibra'l amb un sonòmetre; el valor 100 és només orientatiu.") }
+                    label = { Text(stringResource(R.string.calibration_offset)) },
+                    supportingText = { Text(stringResource(R.string.calibration_help)) }
                 )
                 Button(onClick = {
                     offsetText.toFloatOrNull()?.let {
@@ -62,12 +63,12 @@ class MainActivity : ComponentActivity() {
                         if (Build.VERSION.SDK_INT >= 33) add(Manifest.permission.POST_NOTIFICATIONS)
                     }.toTypedArray()
                     permissionLauncher.launch(permissions)
-                }) { Text("Inicia el monitoratge") }
+                }) { Text(stringResource(R.string.start_monitoring)) }
                 OutlinedButton(onClick = {
                     startService(Intent(this@MainActivity, NoiseMonitorService::class.java)
                         .setAction(NoiseMonitorService.ACTION_STOP))
-                }) { Text("Atura el monitoratge") }
-                Text("Privadesa: l'àudio es processa al telèfon i no es desa ni s'envia.")
+                }) { Text(stringResource(R.string.stop_monitoring)) }
+                Text(stringResource(R.string.privacy_notice))
             }
         }
     }
