@@ -26,6 +26,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { MaterialTheme { SoundWatchScreen() } }
+        val onboarding = getSharedPreferences(IntroActivity.PREFERENCES, MODE_PRIVATE)
+        if (!onboarding.getBoolean(IntroActivity.INTRO_SEEN, false)) {
+            startActivity(Intent(this, IntroActivity::class.java))
+        }
     }
 
     @Composable
@@ -93,8 +97,11 @@ class MainActivity : ComponentActivity() {
                         .setAction(NoiseMonitorService.ACTION_STOP))
                 }) { Text(stringResource(R.string.stop_monitoring)) }
                 OutlinedButton(onClick = {
+                    startActivity(Intent(this@MainActivity, IntroActivity::class.java))
+                }) { Text(stringResource(R.string.introduction)) }
+                OutlinedButton(onClick = {
                     startActivity(Intent(this@MainActivity, HelpActivity::class.java))
-                }) { Text(stringResource(R.string.help)) }
+                }) { Text(stringResource(R.string.how_to_use)) }
                 Text(stringResource(R.string.works_without_calibration))
                 OutlinedButton(onClick = { showCalibration = !showCalibration }) {
                     Text(
