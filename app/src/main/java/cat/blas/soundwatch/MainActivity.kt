@@ -40,6 +40,7 @@ class MainActivity : ComponentActivity() {
         var referenceText by remember { mutableStateOf("") }
         var currentDb by remember { mutableStateOf<Double?>(null) }
         var calibrationSaved by remember { mutableStateOf(false) }
+        var showCalibration by remember { mutableStateOf(false) }
         val settings = getSharedPreferences("settings", MODE_PRIVATE)
 
         LaunchedEffect(Unit) {
@@ -63,7 +64,9 @@ class MainActivity : ComponentActivity() {
                 Modifier
                     .padding(24.dp)
                     .fillMaxWidth()
-                    .verticalScroll(rememberScrollState()),
+                    .verticalScroll(rememberScrollState())
+                    .navigationBarsPadding()
+                    .padding(bottom = 32.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -75,48 +78,6 @@ class MainActivity : ComponentActivity() {
                     } ?: stringResource(R.string.live_level_waiting),
                     style = MaterialTheme.typography.headlineMedium
                 )
-                Card(Modifier.fillMaxWidth()) {
-                    Column(
-                        Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(
-                            stringResource(R.string.how_to_calibrate),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-                        Text(stringResource(R.string.calibration_steps))
-                    }
-                }
-                OutlinedTextField(
-                    value = offsetText,
-                    onValueChange = { offsetText = it },
-                    label = { Text(stringResource(R.string.calibration_offset)) },
-                    supportingText = { Text(stringResource(R.string.calibration_help)) }
-                )
-                OutlinedTextField(
-                    value = referenceText,
-                    onValueChange = {
-                        referenceText = it
-                        calibrationSaved = false
-                    },
-                    label = { Text(stringResource(R.string.reference_level)) },
-                    supportingText = { Text(stringResource(R.string.reference_help)) }
-                )
-                Button(
-                    enabled = currentDb != null && parseDecimal(referenceText) != null,
-                    onClick = {
-                        val oldOffset = parseDecimal(offsetText) ?: 100.0
-                        val reference = parseDecimal(referenceText) ?: return@Button
-                        val measured = currentDb ?: return@Button
-                        val newOffset = oldOffset + reference - measured
-                        offsetText = String.format(Locale.US, "%.1f", newOffset)
-                        settings.edit().putFloat("calibration_offset", newOffset.toFloat()).apply()
-                        calibrationSaved = true
-                    }
-                ) { Text(stringResource(R.string.calibrate)) }
-                if (calibrationSaved) {
-                    Text(stringResource(R.string.calibration_saved, offsetText))
-                }
                 Button(onClick = {
                     parseDecimal(offsetText)?.toFloat()?.let {
                         settings.edit().putFloat("calibration_offset", it).apply()
@@ -131,6 +92,59 @@ class MainActivity : ComponentActivity() {
                     startService(Intent(this@MainActivity, NoiseMonitorService::class.java)
                         .setAction(NoiseMonitorService.ACTION_STOP))
                 }) { Text(stringResource(R.string.stop_monitoring)) }
+                Text(stringResource(R.string.works_without_calibration))
+                OutlinedButton(onClick = { showCalibration = !showCalibration }) {
+                    Text(
+                        stringResource(
+                            if (showCalibration) R.string.hide_calibration
+                            else R.string.optional_calibration
+                        )
+                    )
+                }
+                if (showCalibration) {
+                    Card(Modifier.fillMaxWidth()) {
+                        Column(
+                            Modifier.padding(16.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(
+                                stringResource(R.string.how_to_calibrate),
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                            Text(stringResource(R.string.calibration_steps))
+                        }
+                    }
+                    OutlinedTextField(
+                        value = offsetText,
+                        onValueChange = { offsetText = it },
+                        label = { Text(stringResource(R.string.calibration_offset)) },
+                        supportingText = { Text(stringResource(R.string.calibration_help)) }
+                    )
+                    OutlinedTextField(
+                        value = referenceText,
+                        onValueChange = {
+                            referenceText = it
+                            calibrationSaved = false
+                        },
+                        label = { Text(stringResource(R.string.reference_level)) },
+                        supportingText = { Text(stringResource(R.string.reference_help)) }
+                    )
+                    Button(
+                        enabled = currentDb != null && parseDecimal(referenceText) != null,
+                        onClick = {
+                            val oldOffset = parseDecimal(offsetText) ?: 100.0
+                            val reference = parseDecimal(referenceText) ?: return@Button
+                            val measured = currentDb ?: return@Button
+                            val newOffset = oldOffset + reference - measured
+                            offsetText = String.format(Locale.US, "%.1f", newOffset)
+                            settings.edit().putFloat("calibration_offset", newOffset.toFloat()).apply()
+                            calibrationSaved = true
+                        }
+                    ) { Text(stringResource(R.string.calibrate)) }
+                    if (calibrationSaved) {
+                        Text(stringResource(R.string.calibration_saved, offsetText))
+                    }
+                }
                 Text(stringResource(R.string.privacy_notice))
             }
         }
