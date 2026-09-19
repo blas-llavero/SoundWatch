@@ -28,6 +28,7 @@ class NoiseMonitorService : Service() {
     @Volatile private var running = false
     private var recorder: AudioRecord? = null
     private val gate = NoiseGate()
+    private var lastPublishedAt = 0L
 
     override fun onCreate() {
         super.onCreate()
@@ -76,7 +77,13 @@ class NoiseMonitorService : Service() {
                     val offset = getSharedPreferences("settings", MODE_PRIVATE)
                         .getFloat("calibration_offset", 100f).toDouble()
                     val estimatedDbSpl = dbFs + offset
-                    if (gate.sample(estimatedDbSpl, System.currentTimeMillis())) sendAlert(estimatedDbSpl)
+                    val now = System.currentTimeMillis()
+                    if (now - lastPublishedAt >= 200) {
+                        getSharedPreferences("settings", MODE_PRIVATE).edit()
+                            .putFloat("last_estimated_db", estimatedDbSpl.toFloat()).apply()
+                        lastPublishedAt = now
+                    }
+                    if (gate.sample(estimatedDbSpl, now)) sendAlert(estimatedDbSpl)
                 }
             }
         }
@@ -120,6 +127,8 @@ class NoiseMonitorService : Service() {
 
     private fun stopMonitoring() {
         running = false
+        getSharedPreferences("settings", MODE_PRIVATE).edit()
+            .remove("last_estimated_db").apply()
         runCatching { recorder?.stop() }
         recorder?.release()
         recorder = null
