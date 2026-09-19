@@ -85,8 +85,8 @@ class NoiseMonitorService : Service() {
     private fun sendAlert(db: Double) {
         val notification = NotificationCompat.Builder(this, ALERT_CHANNEL)
             .setSmallIcon(android.R.drawable.ic_dialog_alert)
-            .setContentTitle("Soroll superior a 80 dB")
-            .setContentText("Nivell estimat: %.1f dB durant almenys 1 segon".format(db))
+            .setContentTitle(getString(R.string.alert_title))
+            .setContentText(getString(R.string.alert_text, db))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setAutoCancel(true)
@@ -101,21 +101,21 @@ class NoiseMonitorService : Service() {
         )
         return NotificationCompat.Builder(this, SERVICE_CHANNEL)
             .setSmallIcon(android.R.drawable.ic_btn_speak_now)
-            .setContentTitle("SoundWatch està vigilant el soroll")
-            .setContentText("Llindar: 80 dB · avís: 1 s · pausa: 1 min")
+            .setContentTitle(getString(R.string.monitor_title))
+            .setContentText(getString(R.string.monitor_text))
             .setOngoing(true)
-            .addAction(0, "Atura", pendingStop)
+            .addAction(0, getString(R.string.stop), pendingStop)
             .build()
     }
 
     private fun createChannels() {
         val manager = getSystemService(NotificationManager::class.java)
         manager.createNotificationChannel(NotificationChannel(
-            SERVICE_CHANNEL, "Monitoratge de soroll", NotificationManager.IMPORTANCE_LOW
+            SERVICE_CHANNEL, getString(R.string.monitor_channel), NotificationManager.IMPORTANCE_LOW
         ))
         manager.createNotificationChannel(NotificationChannel(
-            ALERT_CHANNEL, "Alertes de soroll", NotificationManager.IMPORTANCE_HIGH
-        ).apply { description = "Avisos que es poden replicar al rellotge" })
+            ALERT_CHANNEL, getString(R.string.alert_channel), NotificationManager.IMPORTANCE_HIGH
+        ).apply { description = getString(R.string.alert_channel_description) })
     }
 
     private fun stopMonitoring() {
