@@ -4,4 +4,9 @@
  <string name="how_to_calibrate">Comment étalonner</string><string name="calibration_steps">1. Démarrez la surveillance.\n2. Placez le téléphone près d’un sonomètre.\n3. Utilisez un son stable et modéré.\n4. Saisissez la mesure du sonomètre ci-dessous.\n5. Appuyez sur Étalonner automatiquement.</string>
  <string name="works_without_calibration">Prête à utiliser. L’étalonnage est facultatif et améliore uniquement la précision.</string><string name="optional_calibration">Étalonnage facultatif</string><string name="hide_calibration">Masquer l’étalonnage</string>
  <string name="help">Aide</string><string name="help_title">Fonctionnement de SoundWatch</string><string name="help_video_description">Vidéo expliquant les alertes de bruit SoundWatch sur le téléphone et la montre</string><string name="close">Fermer</string>
+ <string name="introduction">Introduction</string>
+ <string name="introduction_title">Protégez votre audition avec SoundWatch</string>
+ <string name="introduction_video_description">Introduction accessible montrant comment les alertes du téléphone et de la montre permettent d’agir plus prudemment</string>
+ <string name="continue_to_app">Continuer vers l’application</string>
+ <string name="how_to_use">Comment utiliser l’application</string>
 </resources>
