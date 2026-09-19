@@ -35,6 +35,26 @@ If Android reports that the app cannot be installed, uninstall an older build
 signed with a different key and try again. Uninstalling also removes that
 build's settings.
 
+## Run, calibrate and use SoundWatch
+
+1. Open **SoundWatch** from the Android app drawer.
+2. Tap **Start monitoring** and allow microphone access and notifications.
+3. Place the phone beside a sound level meter while a stable, moderate sound is
+   present. Avoid using dangerously loud sound for calibration.
+4. Wait for the live SoundWatch reading to become stable.
+5. Enter the sound meter's reading in **Sound meter reading (dB)**.
+6. Tap **Calibrate automatically**. SoundWatch compares the reference with its
+   live reading, calculates the new offset and saves it.
+7. Keep the persistent monitoring notification active. SoundWatch will alert
+   after the estimated level remains above 80 dB for one second.
+8. After an alert, SoundWatch waits 60 seconds before issuing another one.
+9. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
+   release the microphone and end the foreground service.
+
+For reliable background operation, open Android's battery settings for
+SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
+The exact name of this setting varies by Android device.
+
 ## Languages
 
 The interface follows the Android device language automatically. It includes
@@ -55,13 +75,6 @@ The initial value is therefore an estimate and **not a certified sound meter**.
 Calibrate the offset by comparing the reading with a sound level meter next to
 the phone while a stable sound is playing.
 
-## Build
-
-1. Open the project in Android Studio with JDK 17.
-2. Allow Gradle to synchronize the project.
-3. Connect a phone running Android 8.0 or later.
-4. Run the `app` configuration.
-
 ## Configure a Fitbit Charge 6
 
 1. Pair the Charge 6 in the Fitbit app and enable phone notifications.
@@ -73,25 +86,6 @@ the phone while a stable sound is playing.
 
 The Charge 6 does not run SoundWatch itself. It displays the notification
 created by the Android phone.
-
-## Run and use SoundWatch
-
-1. Open **SoundWatch** from the Android app drawer.
-2. Tap **Start monitoring** and allow microphone access and notifications.
-3. Place the phone beside a sound level meter while a stable, moderate sound is
-   present. Avoid using dangerously loud sound for calibration.
-4. Enter the sound meter's reading in **Sound meter reading (dB)**.
-5. Tap **Calibrate automatically**. SoundWatch compares the reference with its
-   live reading, calculates the new offset and saves it.
-6. Keep the persistent monitoring notification active. SoundWatch will alert
-   after the estimated level remains above 80 dB for one second.
-7. After an alert, SoundWatch waits 60 seconds before issuing another one.
-8. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
-   release the microphone and end the foreground service.
-
-For reliable background operation, open Android's battery settings for
-SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
-The exact name of this setting varies by Android device.
 
 ## Show alerts on a Fitbit Charge 6
 
@@ -108,6 +102,29 @@ The exact name of this setting varies by Android device.
 - Alert cooldown: 60 seconds.
 - Monitoring: foreground service with a persistent notification, as required by Android.
 
+## Build from source
+
+1. Install Android Studio and JDK 17.
+2. Clone this repository or download and extract its source ZIP.
+3. Open the project folder in Android Studio.
+4. Allow Gradle to synchronize and download the required dependencies.
+5. Connect a phone running Android 8.0 or later with USB debugging enabled, or
+   start an Android emulator.
+6. Select the `app` configuration and click **Run**.
+
+To build an APK from the command line with Gradle 8.9, run:
+
+```bash
+gradle assembleDebug
+```
+
+The generated file will be located at:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
