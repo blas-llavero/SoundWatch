@@ -4,4 +4,9 @@
  <string name="how_to_calibrate">Kalibrierung</string><string name="calibration_steps">1. Überwachung starten.\n2. Telefon neben einen Schallpegelmesser legen.\n3. Einen stabilen, mäßigen Ton verwenden.\n4. Messwert unten eingeben.\n5. Auf Automatisch kalibrieren tippen.</string>
  <string name="works_without_calibration">Sofort einsatzbereit. Die Kalibrierung ist optional und verbessert nur die Genauigkeit.</string><string name="optional_calibration">Optionale Kalibrierung</string><string name="hide_calibration">Kalibrierung ausblenden</string>
  <string name="help">Hilfe</string><string name="help_title">So funktioniert SoundWatch</string><string name="help_video_description">Video zu SoundWatch-Lärmwarnungen auf Telefon und Uhr</string><string name="close">Schließen</string>
+ <string name="introduction">Einführung</string>
+ <string name="introduction_title">Schützen Sie Ihr Gehör mit SoundWatch</string>
+ <string name="introduction_video_description">Barrierefreie Einführung: Warnungen auf Smartphone und Uhr führen zu sichereren Maßnahmen</string>
+ <string name="continue_to_app">Weiter zur App</string>
+ <string name="how_to_use">App verwenden</string>
 </resources>
