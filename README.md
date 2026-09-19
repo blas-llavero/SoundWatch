@@ -1,47 +1,56 @@
 # SoundWatch
 
-Aplicació Android de codi obert que vigila el nivell de soroll en segon pla i
-genera una notificació quan el nivell **estimat** supera 80 dB durant 1 segon.
-Aplica una espera d'1 minut abans de tornar a avisar. Una polsera Fitbit Charge 6
-pot mostrar l'alerta mitjançant la rèplica de notificacions del telèfon.
+SoundWatch is an open-source Android app that monitors environmental sound in
+the background and creates an alert when the **estimated** level exceeds 80 dB
+for one second. It then waits one minute before another alert. A Fitbit Charge 6
+can display the alert through Android notification mirroring.
 
-## Privadesa
+## Languages
 
-Tot el processament es fa localment. L'app no desa àudio, no l'envia a Internet,
-no conté analítica ni necessita permís de xarxa.
+The interface follows the Android device language automatically. It includes
+English, Spanish, Catalan, French, German, Italian, Portuguese, Simplified
+Chinese, Hindi and Arabic. English is the fallback language. Arabic supports
+right-to-left layout.
 
-## Precisió i calibratge
+## Privacy
 
-Android proporciona amplitud digital, no dB SPL calibrats. Els micròfons i el
-control automàtic de guany varien entre telèfons. Per això el valor inicial és
-orientatiu i **no és un sonòmetre certificat**. Cal ajustar el desplaçament de
-calibratge comparant la lectura amb un sonòmetre al mateix lloc i amb un so estable.
+All audio processing stays on the phone. The app never saves or uploads audio,
+contains no analytics, and does not request Internet access.
 
-## Compilar
+## Accuracy and calibration
 
-1. Obre la carpeta amb Android Studio (JDK 17).
-2. Deixa que Gradle sincronitzi el projecte.
-3. Connecta un telèfon Android 8 o posterior.
-4. Executa la configuració `app`.
+Android provides digital amplitude rather than calibrated sound-pressure level
+(dB SPL). Phone microphones and automatic gain control vary between devices.
+The initial value is therefore an estimate and **not a certified sound meter**.
+Calibrate the offset by comparing the reading with a sound level meter next to
+the phone while a stable sound is playing.
 
-## Configurar el Fitbit Charge 6
+## Build
 
-1. Emparella el Charge 6 amb l'app Fitbit i activa les notificacions del telèfon.
-2. A Fitbit: dispositiu Charge 6 → Notificacions → Notificacions d'aplicacions.
-3. Activa `SoundWatch`. Pot ser necessari que l'app hagi emès una notificació abans.
-4. A Android, permet les notificacions de SoundWatch i exclou-la de l'estalvi de
-   bateria si el fabricant atura serveis en segon pla.
+1. Open the project in Android Studio with JDK 17.
+2. Allow Gradle to synchronize the project.
+3. Connect a phone running Android 8.0 or later.
+4. Run the `app` configuration.
 
-El Charge 6 no executa aquesta app: només mostra la notificació generada pel telèfon.
+## Configure a Fitbit Charge 6
 
-## Comportament
+1. Pair the Charge 6 in the Fitbit app and enable phone notifications.
+2. Open Charge 6 → Notifications → App notifications in Fitbit.
+3. Enable `SoundWatch`. It may need to issue its first notification before it
+   appears in this list.
+4. Allow SoundWatch notifications in Android. If the manufacturer stops
+   background services, exclude SoundWatch from battery optimization.
 
-- Llindar: 80 dB estimats.
-- Durada mínima: 1 segon continu.
-- Pausa entre alertes: 60 segons.
-- Monitoratge: servei en primer pla amb notificació persistent, tal com exigeix Android.
+The Charge 6 does not run SoundWatch itself. It displays the notification
+created by the Android phone.
 
-## Llicència
+## Default behaviour
 
-Apache License 2.0. Consulta [LICENSE](LICENSE).
+- Threshold: estimated 80 dB.
+- Minimum duration: one continuous second.
+- Alert cooldown: 60 seconds.
+- Monitoring: foreground service with a persistent notification, as required by Android.
 
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
