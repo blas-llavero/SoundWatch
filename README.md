@@ -39,16 +39,19 @@ build's settings.
 
 1. Open **SoundWatch** from the Android app drawer.
 2. Tap **Start monitoring** and allow microphone access and notifications.
-3. Place the phone beside a sound level meter while a stable, moderate sound is
+3. SoundWatch works immediately with its default estimate. A sound level meter
+   is not required for normal use.
+4. To improve accuracy optionally, open **Optional calibration**.
+5. Place the phone beside a sound level meter while a stable, moderate sound is
    present. Avoid using dangerously loud sound for calibration.
-4. Wait for the live SoundWatch reading to become stable.
-5. Enter the sound meter's reading in **Sound meter reading (dB)**.
-6. Tap **Calibrate automatically**. SoundWatch compares the reference with its
+6. Wait for the live SoundWatch reading to become stable.
+7. Enter the sound meter's reading in **Sound meter reading (dB)**.
+8. Tap **Calibrate automatically**. SoundWatch compares the reference with its
    live reading, calculates the new offset and saves it.
-7. Keep the persistent monitoring notification active. SoundWatch will alert
+9. Keep the persistent monitoring notification active. SoundWatch will alert
    after the estimated level remains above 80 dB for one second.
-8. After an alert, SoundWatch waits 60 seconds before issuing another one.
-9. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
+10. After an alert, SoundWatch waits 60 seconds before issuing another one.
+11. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
    release the microphone and end the foreground service.
 
 For reliable background operation, open Android's battery settings for
@@ -127,4 +130,3 @@ app/build/outputs/apk/debug/app-debug.apk
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
-
