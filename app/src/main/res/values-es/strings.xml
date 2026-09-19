@@ -4,4 +4,9 @@
  <string name="how_to_calibrate">Cómo calibrar</string><string name="calibration_steps">1. Inicia la monitorización.\n2. Coloca el teléfono junto a un sonómetro.\n3. Utiliza un sonido estable y moderado.\n4. Introduce abajo la lectura del sonómetro.\n5. Pulsa Calibrar automáticamente.</string>
  <string name="works_without_calibration">Lista para usar. La calibración es opcional y solo mejora la precisión.</string><string name="optional_calibration">Calibración opcional</string><string name="hide_calibration">Ocultar calibración</string>
  <string name="help">Ayuda</string><string name="help_title">Cómo funciona SoundWatch</string><string name="help_video_description">Vídeo que explica las alertas de ruido de SoundWatch en el móvil y el reloj</string><string name="close">Cerrar</string>
+ <string name="introduction">Introducción</string>
+ <string name="introduction_title">Protege tu oído con SoundWatch</string>
+ <string name="introduction_video_description">Introducción accesible que muestra cómo las alertas en el móvil y el reloj permiten actuar de forma más segura</string>
+ <string name="continue_to_app">Continuar a la aplicación</string>
+ <string name="how_to_use">Cómo utilizar la aplicación</string>
 </resources>

@@ -38,30 +38,33 @@ build's settings.
 ## Run, calibrate and use SoundWatch
 
 1. Open **SoundWatch** from the Android app drawer.
-2. Tap **Start monitoring** and allow microphone access and notifications.
-3. SoundWatch works immediately with its default estimate. A sound level meter
+2. On the first launch, watch or close the built-in introduction. It shows four
+   examples in which a phone/watch alert leads to a safer action.
+3. Tap **Start monitoring** and allow microphone access and notifications.
+4. SoundWatch works immediately with its default estimate. A sound level meter
    is not required for normal use.
-4. Tap **Help** to watch the built-in 30-second explanation of monitoring,
-   the 80 dB threshold, and phone/watch notifications.
-5. To improve accuracy optionally, open **Optional calibration**.
-6. Place the phone beside a sound level meter while a stable, moderate sound is
+5. Tap **Introduction** to watch the preventive introduction again, or tap
+   **How to use the app** to open the separate instructional video.
+6. To improve accuracy optionally, open **Optional calibration**.
+7. Place the phone beside a sound level meter while a stable, moderate sound is
    present. Avoid using dangerously loud sound for calibration.
-7. Wait for the live SoundWatch reading to become stable.
-8. Enter the sound meter's reading in **Sound meter reading (dB)**.
-9. Tap **Calibrate automatically**. SoundWatch compares the reference with its
+8. Wait for the live SoundWatch reading to become stable.
+9. Enter the sound meter's reading in **Sound meter reading (dB)**.
+10. Tap **Calibrate automatically**. SoundWatch compares the reference with its
    live reading, calculates the new offset and saves it.
-10. Keep the persistent monitoring notification active. SoundWatch will alert
+11. Keep the persistent monitoring notification active. SoundWatch will alert
    after the estimated level remains above 80 dB for one second.
-11. After an alert, SoundWatch waits 60 seconds before issuing another one.
-12. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
+12. After an alert, SoundWatch waits 60 seconds before issuing another one.
+13. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
    release the microphone and end the foreground service.
 
 For reliable background operation, open Android's battery settings for
 SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
 The exact name of this setting varies by Android device.
 
-The help video is bundled with the APK, plays without Internet access, and
-does not transmit any data.
+Both videos are bundled with the APK, play without Internet access, and do not
+transmit any data. The introduction follows the Android device language.
+English is used as the fallback.
 
 ## Languages
 
@@ -69,6 +72,11 @@ The interface follows the Android device language automatically. It includes
 English, Spanish, Catalan, French, German, Italian, Portuguese, Simplified
 Chinese, Hindi and Arabic. English is the fallback language. Arabic supports
 right-to-left layout.
+
+The preventive introduction includes localized subtitles in all ten languages.
+Narration is included only where the bundled voice can be redistributed under
+an open license. The Arabic and Hindi editions currently use subtitles without
+audio rather than bundling restrictively licensed voice models.
 
 ## Privacy
 
@@ -132,7 +140,29 @@ The generated file will be located at:
 app/build/outputs/apk/debug/app-debug.apk
 ```
 
+## Open-source media and voice assets
+
+The preventive introduction artwork and editing are distributed with this
+project under the Apache License 2.0. Narration was generated locally with
+[Piper](https://github.com/OHF-Voice/piper1-gpl). The bundled narrated editions
+use the following source datasets and licenses:
+
+- English `ljspeech`: public domain.
+- Catalan `upc_ona`: CC BY-SA 3.0 ES.
+- German `thorsten`: CC0.
+- Spanish `davefx`: CC0.
+- French `siwis`: CC BY 4.0.
+- Italian `serena`: CC BY 4.0.
+- Portuguese `tugão`: CC0.
+- Simplified Chinese `chaowen`: CC0.
+
+Arabic and Hindi narration generated during development is not included in the
+application because the available voice datasets did not meet the project's
+open-license requirement.
+
+See [MEDIA_LICENSES.md](MEDIA_LICENSES.md) for attribution and the license that
+applies to each localized media file.
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
-

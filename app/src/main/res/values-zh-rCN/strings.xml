@@ -4,4 +4,9 @@
  <string name="how_to_calibrate">如何校准</string><string name="calibration_steps">1. 开始监测。\n2. 将手机放在声级计旁边。\n3. 使用稳定、适中的声音。\n4. 在下方输入声级计读数。\n5. 点击自动校准。</string>
  <string name="works_without_calibration">可直接使用。校准是可选的，仅用于提高准确度。</string><string name="optional_calibration">可选校准</string><string name="hide_calibration">隐藏校准</string>
  <string name="help">帮助</string><string name="help_title">SoundWatch 的工作原理</string><string name="help_video_description">介绍 SoundWatch 如何在手机和手表上显示噪声提醒的视频</string><string name="close">关闭</string>
+ <string name="introduction">介绍</string>
+ <string name="introduction_title">使用 SoundWatch 保护听力</string>
+ <string name="introduction_video_description">无障碍介绍，展示手机和手表警报如何帮助用户采取更安全的行动</string>
+ <string name="continue_to_app">继续进入应用</string>
+ <string name="how_to_use">如何使用应用</string>
 </resources>
