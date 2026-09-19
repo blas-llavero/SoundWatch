@@ -3,4 +3,5 @@
  <string name="live_level">المستوى المباشر: %1$.1f dB</string><string name="live_level_waiting">ابدأ المراقبة لعرض المستوى المباشر</string><string name="reference_level">قراءة مقياس الصوت (dB)</string><string name="reference_help">ضع الهاتف بجوار مقياس الصوت وأدخل قراءته.</string><string name="calibrate">المعايرة تلقائيًا</string><string name="calibration_saved">تم حفظ المعايرة. الإزاحة الجديدة: %1$s dB</string>
  <string name="how_to_calibrate">كيفية المعايرة</string><string name="calibration_steps">1. ابدأ المراقبة.\n2. ضع الهاتف بجوار مقياس الصوت.\n3. استخدم صوتًا ثابتًا ومعتدلًا.\n4. أدخل قراءة المقياس أدناه.\n5. اضغط المعايرة تلقائيًا.</string>
  <string name="works_without_calibration">جاهز للاستخدام. المعايرة اختيارية وتُحسن الدقة فقط.</string><string name="optional_calibration">معايرة اختيارية</string><string name="hide_calibration">إخفاء المعايرة</string>
+ <string name="help">مساعدة</string><string name="help_title">كيفية عمل SoundWatch</string><string name="help_video_description">فيديو يشرح تنبيهات الضوضاء من SoundWatch على الهاتف والساعة</string><string name="close">إغلاق</string>
 </resources>
