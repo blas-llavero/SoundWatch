@@ -44,6 +44,61 @@ the phone while a stable sound is playing.
 The Charge 6 does not run SoundWatch itself. It displays the notification
 created by the Android phone.
 
+## Download the APK from GitHub
+
+Every push to the `main` branch starts the **Android CI** workflow. When the
+workflow finishes successfully:
+
+1. Open the repository's **Actions** tab.
+2. Select the latest successful **Android CI** run.
+3. Scroll to the **Artifacts** section at the bottom of the run summary.
+4. Download **SoundWatch-debug-apk**. GitHub downloads a ZIP file.
+5. Extract the ZIP on the Android phone. The installation file inside is
+   `app-debug.apk`.
+
+GitHub requires you to be signed in before downloading workflow artifacts.
+Debug APKs are intended for testing and are not signed for Google Play release.
+
+## Install the APK on Android
+
+1. Download and extract `SoundWatch-debug-apk.zip` on the phone.
+2. Open `app-debug.apk` from the Files or Downloads app.
+3. If Android blocks the installation, tap **Settings** on the warning and
+   temporarily enable **Allow from this source** for the app used to open the
+   APK, such as Chrome or Files.
+4. Return to the installer and tap **Install**.
+5. After installation, disable **Allow from this source** again if you do not
+   normally install APKs manually.
+
+If Android reports that the app cannot be installed, uninstall an older build
+signed with a different key and try again. Uninstalling also removes that
+build's settings.
+
+## Run and use SoundWatch
+
+1. Open **SoundWatch** from the Android app drawer.
+2. Enter the calibration offset. The default value of 100 is only an estimate;
+   compare the phone with a sound level meter for meaningful readings.
+3. Tap **Start monitoring**.
+4. Allow microphone access and notifications when Android asks.
+5. Keep the persistent monitoring notification active. SoundWatch will alert
+   after the estimated level remains above 80 dB for one second.
+6. After an alert, SoundWatch waits 60 seconds before issuing another one.
+7. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
+   release the microphone and end the foreground service.
+
+For reliable background operation, open Android's battery settings for
+SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
+The exact name of this setting varies by Android device.
+
+## Show alerts on a Fitbit Charge 6
+
+1. Start SoundWatch once and allow it to create notifications.
+2. Open the Fitbit app and select the Charge 6.
+3. Open **Notifications → App notifications**.
+4. Enable **SoundWatch**.
+5. Keep Bluetooth, Fitbit notification access and phone notifications enabled.
+
 ## Default behaviour
 
 - Threshold: estimated 80 dB.
@@ -54,3 +109,4 @@ created by the Android phone.
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
