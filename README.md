@@ -60,6 +60,9 @@ For reliable background operation, open Android's battery settings for
 SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
 The exact name of this setting varies by Android device.
 
+The help video is bundled with the APK, plays without Internet access, and
+does not transmit any data.
+
 ## Languages
 
 The interface follows the Android device language automatically. It includes
@@ -132,3 +135,4 @@ app/build/outputs/apk/debug/app-debug.apk
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
