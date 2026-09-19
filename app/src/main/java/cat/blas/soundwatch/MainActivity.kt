@@ -92,6 +92,9 @@ class MainActivity : ComponentActivity() {
                     startService(Intent(this@MainActivity, NoiseMonitorService::class.java)
                         .setAction(NoiseMonitorService.ACTION_STOP))
                 }) { Text(stringResource(R.string.stop_monitoring)) }
+                OutlinedButton(onClick = {
+                    startActivity(Intent(this@MainActivity, HelpActivity::class.java))
+                }) { Text(stringResource(R.string.help)) }
                 Text(stringResource(R.string.works_without_calibration))
                 OutlinedButton(onClick = { showCalibration = !showCalibration }) {
                     Text(
