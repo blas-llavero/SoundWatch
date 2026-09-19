@@ -7,7 +7,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="SoundWatch"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/Theme.SoundWatch">
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
@@ -21,4 +22,3 @@
             android:foregroundServiceType="microphone" />
     </application>
 </manifest>
-
