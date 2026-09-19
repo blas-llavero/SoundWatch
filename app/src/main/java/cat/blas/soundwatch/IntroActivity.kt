@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
+import java.util.Locale
 
 class IntroActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,8 +54,20 @@ class IntroActivity : Activity() {
         val controller = MediaController(this)
         controller.setAnchorView(video)
         video.setMediaController(controller)
+        val videoResource = when (Locale.getDefault().language) {
+            "ar" -> R.raw.soundwatch_intro_ar
+            "ca" -> R.raw.soundwatch_intro_ca
+            "de" -> R.raw.soundwatch_intro_de
+            "es" -> R.raw.soundwatch_intro_es
+            "fr" -> R.raw.soundwatch_intro_fr
+            "hi" -> R.raw.soundwatch_intro_hi
+            "it" -> R.raw.soundwatch_intro_it
+            "pt" -> R.raw.soundwatch_intro_pt
+            "zh" -> R.raw.soundwatch_intro_zh
+            else -> R.raw.soundwatch_intro
+        }
         video.setVideoURI(
-            Uri.parse("android.resource://$packageName/${R.raw.soundwatch_intro}")
+            Uri.parse("android.resource://$packageName/$videoResource")
         )
         video.setOnPreparedListener {
             video.seekTo(1)
