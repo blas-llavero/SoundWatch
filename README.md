@@ -62,9 +62,9 @@ For reliable background operation, open Android's battery settings for
 dBNora and select **Unrestricted** if the phone manufacturer stops the app.
 The exact name of this setting varies by Android device.
 
-Both videos are bundled with the APK, play without Internet access, and do not
-transmit any data. The introduction follows the Android device language.
-English is used as the fallback.
+Both the introduction and help videos are bundled with the APK, play without
+Internet access, and do not transmit any data. Each video follows the Android
+device language. English is used as the fallback.
 
 ## Languages
 
@@ -73,10 +73,12 @@ English, Spanish, Catalan, French, German, Italian, Portuguese, Simplified
 Chinese, Hindi and Arabic. English is the fallback language. Arabic supports
 right-to-left layout.
 
-The preventive introduction includes localized subtitles in all ten languages.
-Narration is included only where the bundled voice can be redistributed under
-an open license. The Arabic and Hindi editions currently use subtitles without
-audio rather than bundling restrictively licensed voice models.
+The preventive introduction and the help video include localized text in all
+ten languages. Natural narration for the corrected branded sentence is
+included in English, Catalan, Spanish, German, French, Italian and Portuguese.
+The Simplified Chinese, Arabic and Hindi corrections use localized subtitles
+without replacement narration rather than bundling an unsuitable or
+restrictively licensed voice model. The help videos are intentionally silent.
 
 ## Privacy
 
