@@ -5,6 +5,6 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories { google(); mavenCentral() }
 }
-rootProject.name = "SoundWatch"
+rootProject.name = "dBNora"
 include(":app")
 

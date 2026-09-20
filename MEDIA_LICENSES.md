@@ -1,6 +1,6 @@
-# SoundWatch media licenses
+# dBNora media licenses
 
-The SoundWatch source code is licensed under Apache License 2.0. The original
+The dBNora source code is licensed under Apache License 2.0. The original
 introduction artwork, subtitles and video editing are also provided under
 Apache License 2.0. Localized narration retains the license and attribution of
 its source voice dataset as listed below.

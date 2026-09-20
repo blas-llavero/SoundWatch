@@ -1,6 +1,6 @@
-# SoundWatch
+# dBNora
 
-SoundWatch is an open-source Android app that monitors environmental sound in
+dBNora is an open-source Android app that monitors environmental sound in
 the background and creates an alert when the **estimated** level exceeds 80 dB
 for one second. It then waits one minute before another alert. A Fitbit Charge 6
 can display the alert through Android notification mirroring.
@@ -13,7 +13,7 @@ workflow finishes successfully:
 1. Open the repository's **Actions** tab.
 2. Select the latest successful **Android CI** run.
 3. Scroll to the **Artifacts** section at the bottom of the run summary.
-4. Download **SoundWatch-debug-apk**. GitHub downloads a ZIP file.
+4. Download **dBNora-debug-apk**. GitHub downloads a ZIP file.
 5. Extract the ZIP on the Android phone. The installation file inside is
    `app-debug.apk`.
 
@@ -22,7 +22,7 @@ Debug APKs are intended for testing and are not signed for Google Play release.
 
 ## Install the APK on Android
 
-1. Download and extract `SoundWatch-debug-apk.zip` on the phone.
+1. Download and extract `dBNora-debug-apk.zip` on the phone.
 2. Open `app-debug.apk` from the Files or Downloads app.
 3. If Android blocks the installation, tap **Settings** on the warning and
    temporarily enable **Allow from this source** for the app used to open the
@@ -35,31 +35,31 @@ If Android reports that the app cannot be installed, uninstall an older build
 signed with a different key and try again. Uninstalling also removes that
 build's settings.
 
-## Run, calibrate and use SoundWatch
+## Run, calibrate and use dBNora
 
-1. Open **SoundWatch** from the Android app drawer.
+1. Open **dBNora** from the Android app drawer.
 2. On the first launch, watch or close the built-in introduction. It shows four
    examples in which a phone/watch alert leads to a safer action.
 3. Tap **Start monitoring** and allow microphone access and notifications.
-4. SoundWatch works immediately with its default estimate. A sound level meter
+4. dBNora works immediately with its default estimate. A sound level meter
    is not required for normal use.
 5. Tap **Introduction** to watch the preventive introduction again, or tap
    **How to use the app** to open the separate instructional video.
 6. To improve accuracy optionally, open **Optional calibration**.
 7. Place the phone beside a sound level meter while a stable, moderate sound is
    present. Avoid using dangerously loud sound for calibration.
-8. Wait for the live SoundWatch reading to become stable.
+8. Wait for the live dBNora reading to become stable.
 9. Enter the sound meter's reading in **Sound meter reading (dB)**.
-10. Tap **Calibrate automatically**. SoundWatch compares the reference with its
+10. Tap **Calibrate automatically**. dBNora compares the reference with its
    live reading, calculates the new offset and saves it.
-11. Keep the persistent monitoring notification active. SoundWatch will alert
+11. Keep the persistent monitoring notification active. dBNora will alert
    after the estimated level remains above 80 dB for one second.
-12. After an alert, SoundWatch waits 60 seconds before issuing another one.
+12. After an alert, dBNora waits 60 seconds before issuing another one.
 13. Tap **Stop monitoring**, or use **Stop** in the persistent notification, to
    release the microphone and end the foreground service.
 
 For reliable background operation, open Android's battery settings for
-SoundWatch and select **Unrestricted** if the phone manufacturer stops the app.
+dBNora and select **Unrestricted** if the phone manufacturer stops the app.
 The exact name of this setting varies by Android device.
 
 Both videos are bundled with the APK, play without Internet access, and do not
@@ -95,20 +95,20 @@ the phone while a stable sound is playing.
 
 1. Pair the Charge 6 in the Fitbit app and enable phone notifications.
 2. Open Charge 6 → Notifications → App notifications in Fitbit.
-3. Enable `SoundWatch`. It may need to issue its first notification before it
+3. Enable `dBNora`. It may need to issue its first notification before it
    appears in this list.
-4. Allow SoundWatch notifications in Android. If the manufacturer stops
-   background services, exclude SoundWatch from battery optimization.
+4. Allow dBNora notifications in Android. If the manufacturer stops
+   background services, exclude dBNora from battery optimization.
 
-The Charge 6 does not run SoundWatch itself. It displays the notification
+The Charge 6 does not run dBNora itself. It displays the notification
 created by the Android phone.
 
 ## Show alerts on a Fitbit Charge 6
 
-1. Start SoundWatch once and allow it to create notifications.
+1. Start dBNora once and allow it to create notifications.
 2. Open the Fitbit app and select the Charge 6.
 3. Open **Notifications → App notifications**.
-4. Enable **SoundWatch**.
+4. Enable **dBNora**.
 5. Keep Bluetooth, Fitbit notification access and phone notifications enabled.
 
 ## Default behaviour
