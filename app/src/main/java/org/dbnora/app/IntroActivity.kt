@@ -1,4 +1,4 @@
-package cat.blas.soundwatch
+package org.dbnora.app
 
 import android.app.Activity
 import android.net.Uri
@@ -10,10 +10,15 @@ import android.widget.LinearLayout
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
+import java.util.Locale
 
-class HelpActivity : Activity() {
+class IntroActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getSharedPreferences(PREFERENCES, MODE_PRIVATE)
+            .edit()
+            .putBoolean(INTRO_SEEN, true)
+            .apply()
 
         val density = resources.displayMetrics.density
         val padding = (16 * density).toInt()
@@ -23,7 +28,7 @@ class HelpActivity : Activity() {
             setPadding(padding, padding, padding, padding)
         }
         val title = TextView(this).apply {
-            text = getString(R.string.help_title)
+            text = getString(R.string.introduction_title)
             textSize = 24f
             gravity = Gravity.CENTER
             setPadding(0, 0, 0, padding)
@@ -34,10 +39,10 @@ class HelpActivity : Activity() {
                 0,
                 1f
             )
-            contentDescription = getString(R.string.help_video_description)
+            contentDescription = getString(R.string.introduction_video_description)
         }
         val close = Button(this).apply {
-            text = getString(R.string.close)
+            text = getString(R.string.continue_to_app)
             setOnClickListener { finish() }
         }
 
@@ -49,12 +54,29 @@ class HelpActivity : Activity() {
         val controller = MediaController(this)
         controller.setAnchorView(video)
         video.setMediaController(controller)
+        val videoResource = when (Locale.getDefault().language) {
+            "ar" -> R.raw.dbnora_intro_ar
+            "ca" -> R.raw.dbnora_intro_ca
+            "de" -> R.raw.dbnora_intro_de
+            "es" -> R.raw.dbnora_intro_es
+            "fr" -> R.raw.dbnora_intro_fr
+            "hi" -> R.raw.dbnora_intro_hi
+            "it" -> R.raw.dbnora_intro_it
+            "pt" -> R.raw.dbnora_intro_pt
+            "zh" -> R.raw.dbnora_intro_zh
+            else -> R.raw.dbnora_intro
+        }
         video.setVideoURI(
-            Uri.parse("android.resource://$packageName/${R.raw.soundwatch_help}")
+            Uri.parse("android.resource://$packageName/$videoResource")
         )
         video.setOnPreparedListener {
             video.seekTo(1)
             video.start()
         }
+    }
+
+    companion object {
+        const val PREFERENCES = "onboarding"
+        const val INTRO_SEEN = "introduction_seen"
     }
 }

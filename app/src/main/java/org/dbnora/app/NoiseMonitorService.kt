@@ -1,4 +1,4 @@
-package cat.blas.soundwatch
+package org.dbnora.app
 
 import android.Manifest
 import android.app.*
@@ -16,10 +16,10 @@ import kotlin.math.sqrt
 
 class NoiseMonitorService : Service() {
     companion object {
-        const val ACTION_START = "cat.blas.soundwatch.START"
-        const val ACTION_STOP = "cat.blas.soundwatch.STOP"
-        private const val SERVICE_CHANNEL = "soundwatch_monitor"
-        private const val ALERT_CHANNEL = "soundwatch_alerts"
+        const val ACTION_START = "org.dbnora.app.START"
+        const val ACTION_STOP = "org.dbnora.app.STOP"
+        private const val SERVICE_CHANNEL = "dbnora_monitor"
+        private const val ALERT_CHANNEL = "dbnora_alerts"
         private const val SERVICE_ID = 100
         private const val ALERT_ID = 101
         private const val SAMPLE_RATE = 16_000
@@ -62,7 +62,7 @@ class NoiseMonitorService : Service() {
         )
         running = true
         recorder?.startRecording()
-        thread(name = "SoundWatch-recorder") {
+        thread(name = "dBNora-recorder") {
             val samples = ShortArray(1_600) // about 100 ms
             while (running) {
                 val count = recorder?.read(samples, 0, samples.size) ?: -1

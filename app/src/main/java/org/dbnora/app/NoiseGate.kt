@@ -1,4 +1,4 @@
-package cat.blas.soundwatch
+package org.dbnora.app
 
 /** Decides when a sustained threshold crossing may produce an alert. */
 class NoiseGate(
