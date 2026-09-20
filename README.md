@@ -7,7 +7,7 @@ can display the alert through Android notification mirroring.
 
 ## Creator
 
-dBNora was created by **Blas Llavero** in Reus, Catalonia, in 2026. The
+dBNora was created by **Blas Llavero** in Catalonia in 2026. The
 original idea, purpose, product requirements and project direction are his.
 Development has been carried out with AI-assisted tools and open-source
 components.
