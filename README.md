@@ -9,8 +9,7 @@ can display the alert through Android notification mirroring.
 
 dBNora was created by **Blas Llavero** in Catalonia in 2026. The
 original idea, purpose, product requirements and project direction are his.
-Development has been carried out with AI-assisted tools and open-source
-components.
+The project uses open-source components.
 
 ## Download the APK from GitHub
 
