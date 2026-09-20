@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
+import java.util.Locale
 
 class HelpActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,8 +50,20 @@ class HelpActivity : Activity() {
         val controller = MediaController(this)
         controller.setAnchorView(video)
         video.setMediaController(controller)
+        val videoResource = when (Locale.getDefault().language) {
+            "ar" -> R.raw.dbnora_help_ar
+            "ca" -> R.raw.dbnora_help_ca
+            "de" -> R.raw.dbnora_help_de
+            "es" -> R.raw.dbnora_help_es
+            "fr" -> R.raw.dbnora_help_fr
+            "hi" -> R.raw.dbnora_help_hi
+            "it" -> R.raw.dbnora_help_it
+            "pt" -> R.raw.dbnora_help_pt
+            "zh" -> R.raw.dbnora_help_zh
+            else -> R.raw.dbnora_help
+        }
         video.setVideoURI(
-            Uri.parse("android.resource://$packageName/${R.raw.dbnora_help}")
+            Uri.parse("android.resource://$packageName/$videoResource")
         )
         video.setOnPreparedListener {
             video.seekTo(1)
