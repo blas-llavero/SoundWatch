@@ -5,6 +5,13 @@ the background and creates an alert when the **estimated** level exceeds 80 dB
 for one second. It then waits one minute before another alert. A Fitbit Charge 6
 can display the alert through Android notification mirroring.
 
+## Creator
+
+dBNora was created by **Blas Llavero** in Reus, Catalonia, in 2026. The
+original idea, purpose, product requirements and project direction are his.
+Development has been carried out with AI-assisted tools and open-source
+components.
+
 ## Download the APK from GitHub
 
 Every push to the `main` branch starts the **Android CI** workflow. When the
