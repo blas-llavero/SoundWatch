@@ -1,4 +1,4 @@
-package cat.blas.soundwatch
+package org.dbnora.app
 
 import android.Manifest
 import android.content.Intent
@@ -25,7 +25,7 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { MaterialTheme { SoundWatchScreen() } }
+        setContent { MaterialTheme { DBNoraScreen() } }
         val onboarding = getSharedPreferences(IntroActivity.PREFERENCES, MODE_PRIVATE)
         if (!onboarding.getBoolean(IntroActivity.INTRO_SEEN, false)) {
             startActivity(Intent(this, IntroActivity::class.java))
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun SoundWatchScreen() {
+    private fun DBNoraScreen() {
         fun parseDecimal(text: String): Double? =
             text.trim().replace(',', '.').toDoubleOrNull()
 
